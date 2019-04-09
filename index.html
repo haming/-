@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .main{
+        position: absolute;
+        top: 0px;
+    }
+</style>
+<!--<script src="javascripts/build/iscroll.js"></script>-->
+<body>
+<div id="box"  style="height: 200px;overflow: hidden;position: relative">
+    <div id="wrapper" class="main">
+        <ul>
+            <li>...</li>
+            <li>...</li>
+            <li>...</li>
+
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+   function my_marquee(box,list,speed){
+       //获取列表高度;
+       var listHeight = document.getElementById(list).offsetHeight;
+       //获取盒子高度;
+       var top = document.getElementById(box).offsetHeight;
+       var heightNumb = 0;
+       setInterval(function () {
+           heightNumb = heightNumb-1;
+           if(heightNumb == '-'+ listHeight){
+               document.getElementById(list).style.top = top+'px';
+               heightNumb = top;
+           }else{
+               document.getElementById(list).style.top = heightNumb+'px';
+           }
+       },speed)
+   }
+
+   setTimeout(function () {
+       my_marquee("box","wrapper",50)
+   },3000)
+
+</script>
+</body>
+</html>
